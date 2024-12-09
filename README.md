@@ -60,29 +60,27 @@
   // Creates a global CustomPoll object if it doesn't exist
   // Sets up a function to store poll configurations
   // Uses unique identifiers (_cp and _cp1) to manage multiple polls
-  (function (uniqueId) {
-    window.CustomPoll = window.CustomPoll || {};
-    var CustomPoll = window.CustomPoll;
-    CustomPoll[uniqueId] = CustomPoll[uniqueId] || function (config) {
-      (CustomPoll[uniqueId].c = CustomPoll[uniqueId].c || []).push(config);
-    };
-  })("_cp");
-
-  // Poll Configuration
-  CustomPoll._cp({
-    parentElementId: "root",
-    id: "1",
-    question: "How do you prefer to engage with online content?",
-    options: [
-      {
-        id: "1",
-        label: "Voting in polls",
-        voteCount: 0,
+    function initializeCustomPoll(uniqueId) {
+        window.CustomPoll = window.CustomPoll || {};
+        var CustomPoll = window.CustomPoll;
+        CustomPoll[uniqueId] = CustomPoll[uniqueId] || function(config) {
+          (CustomPoll[uniqueId].c = CustomPoll[uniqueId].c || []).push(config);
+        };
       }
-      // ... more options ...
-    ],
-    totalVotes: 0
-  });
+
+      // Initialize first poll
+      initializeCustomPoll('_cp');
+      CustomPoll._cp({
+        parentElementId: "root",
+        id: "1",
+        question: "How do you prefer to engage with online content?",
+        options: [
+          { id: "1", label: "Voting in polls", voteCount: 0 },
+          { id: "2", label: "Reading comments", voteCount: 0 },
+          { id: "3", label: "Sharing on social media", voteCount: 0 }
+        ],
+        totalVotes: 0
+      });
 </script>
 ```
 

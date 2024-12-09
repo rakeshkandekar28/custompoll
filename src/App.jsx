@@ -15,7 +15,7 @@ const App = (props) => {
       <div className="container mx-auto ">
       
       <div className="block md:flex md:flex-row bg-amber-400 gap-2 my-5 p-4 rounded-md">
-        <div className="w-full md:basis-2/5 md:flex md:justify-center md:items-center">
+        <div className="w-full md:basis-2/5 md:flex md:justify-center md:items-center md:p-4">
           <h1 className="text-3xl font-bold">{pollingValue.question}</h1>
         </div>
         <div className="w-full md:basis-3/5 ">

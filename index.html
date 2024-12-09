@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poll Demo - First Poll</title>
+    
+  </head>
+  <body>
+    <main class="container max-w-7xl mx-auto p-4">
+
+      <div class=" bg-white md:pt-4 flex items-center flex-wrap">
+        <ul class="flex items-center">
+        <li class="inline-flex items-center">
+          <a href="/index.html" class="text-gray-600 hover:text-blue-500">
+            Home
+          </a>
+      
+          <span class="mx-4 h-auto text-gray-400 font-medium">/ </span>
+        </li>
+      
+        <li class="inline-flex items-center">
+          <a href="/secondpoll.html" class="text-gray-600 hover:text-blue-500">
+            &nbsp;Second Poll
+          </a>
+        </li>
+        </ul>
+      </div>
+
+      
+      <div id="root"></div>
+      <div id="poll1"></div>
+    </main>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+
+    function initializeCustomPoll(uniqueId) {
+        window.CustomPoll = window.CustomPoll || {};
+        var CustomPoll = window.CustomPoll;
+        CustomPoll[uniqueId] = CustomPoll[uniqueId] || function(config) {
+          (CustomPoll[uniqueId].c = CustomPoll[uniqueId].c || []).push(config);
+        };
+      }
+
+      // Initialize first poll
+      initializeCustomPoll('_cp');
+      CustomPoll._cp({
+        parentElementId: "root",
+        id: "1",
+        question: "How do you prefer to engage with online content?",
+        options: [
+          { id: "1", label: "Voting in polls", voteCount: 0 },
+          { id: "2", label: "Reading comments", voteCount: 0 },
+          { id: "3", label: "Sharing on social media", voteCount: 0 }
+        ],
+        totalVotes: 0
+      });
+
+      // Initialize second poll
+      initializeCustomPoll('_cp1');
+      CustomPoll._cp1({
+        parentElementId: "poll1",
+        id: "2",
+        question: "What makes you click on an advertisement?",
+        options: [
+          { id: "1", label: "Interactive elements", voteCount: 0 },
+          { id: "2", label: "Relevant content", voteCount: 0 },
+          { id: "3", label: "Visual appeal", voteCount: 0 }
+        ],
+        totalVotes: 0
+      });
+    </script>
+    
+    
+  </body>
+</html>
